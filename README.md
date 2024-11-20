@@ -66,43 +66,26 @@ This project demonstrates the use of formal verification to mathematically prove
 
 ---
 
-Expected Output
-Verification Success
-When Dafny successfully verifies that the Solidity contract satisfies the formal specification, the output will indicate that the contract meets the desired conditions.
+# Output After Successful Verification
 
-Example:
-
-diff
-Copy code
 Verification successful for contract UserBalance.sol
 
 Properties:
-- The balance can only increase after a deposit.
-- The balance remains non-negative.
-- The contract behaves as expected according to the Dafny specification.
+- The balance can only increase after a deposit. PASSED
+- The balance remains non-negative. PASSED
 
-No errors were found.
-Verification Failure
-If there is a failure in verification (for instance, if the formal properties were incorrectly defined), the output would indicate the failed conditions or errors.
+No errors found.
 
-Example:
+# Output After Failed Verification
 
-vbnet
-Copy code
 Verification failed for contract UserBalance.sol
 
 Properties:
 - The balance can only increase after a deposit. FAILED
 - The balance remains non-negative. PASSED
-- Additional properties to check balance consistency were not met.
 
 Errors:
-- Property violation: The balance was not properly updated in certain cases (e.g., when zero deposit was made).
-How the Verification Works
-The Dafny specification (UserBalanceSpec.dvy) checks whether the condition updated_balance >= initial_balance + amount holds true after a deposit. If this property is met, it confirms that the balance only increases after a deposit and maintains non-negativity.
-
-If the specification passes, the verification will output a success message, confirming that the contract behaves as expected.
-
+- Property violation: The balance was not properly updated in certain cases 
 
 ---
 
