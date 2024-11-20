@@ -1,0 +1,10 @@
+module UserBalanceSpec {
+    var initial_balance: int
+
+    // Define the user balance condition
+    requires 0 <= balances[msg.sender] && balances[msg.sender] >= 0;
+
+    method deposit(amount: int) returns(updated_balance: int)
+        // Ensure that the balance can only increase after deposit
+        ensures 0 <= updated_balance && updated_balance >= initial_balance + amount; 
+}
