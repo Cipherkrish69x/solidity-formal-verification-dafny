@@ -7,7 +7,6 @@ contract UserBalance {
     function deposit(uint256 amount) public returns (uint256 updated_balance) {
         require(amount > 0, "Deposit must be greater than zero");
         
-        // Update balance using a simple addition
         balances[msg.sender] += amount;
         
         return balances[msg.sender];
